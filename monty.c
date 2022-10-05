@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void check_opcode(char *str, stack_t **head, unsigned int *line_no)
+int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 {
 	int i;
 	char *holder = strtok(str, " ");
@@ -12,11 +12,16 @@ void check_opcode(char *str, stack_t **head, unsigned int *line_no)
 		if (!strcmp(opp[i].opcode, holder))
 		{
 			if (!strcmp("push", holder))
+			{
 				opp[i].f(head, *line_no);
+				if ((*head)->n == 0)
+					return (0);
+			}
 			else if (!strcmp("pall", holder))
 				opp[i].f(head, *line_no);
 		}
 	}
+	return (1);
 }
 
 /**
@@ -55,9 +60,9 @@ char *get_opcode(char c, int fd, unsigned int *ptr)
  */
 int main(__attribute__((unused)) int argc, char **argv)
 {
-	int fd;
+	int fd, y;
 	unsigned int line_no = 0;
-	char c, *oP = NULL;
+	char c;
 	ssize_t read_len;
 	stack_t *head = NULL;
 
@@ -82,10 +87,14 @@ label:
 	}
 	if (read_len == 1)
 	{
-		check_opcode(oP, &head, &line_no);
-		goto label;
+		y = check_opcode(oP, &head, &line_no);
+		free(oP);
+		if (y)
+			goto label;
 	}
 	close(fd);
-	/* free_list */
+	free_stack_t(head);
+	if (y == 0)
+		EXIT_FAILURE;
 	return (0);
 }

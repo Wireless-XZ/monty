@@ -39,3 +39,23 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	free(ptr);
 	return (p);
 }
+
+/**
+ * free_stack_t - frees a doubly linked list
+ * @head: head node
+ */
+void free_stack_t(stack_t *head)
+{
+	stack_t *dummy = head;
+
+	if (head)
+	{
+		while (head->next)
+		{
+			head = head->next;
+			free(dummy);
+			dummy = head;
+		}
+	}
+	free(dummy);
+}

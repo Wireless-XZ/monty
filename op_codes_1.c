@@ -9,13 +9,15 @@ void push_func(stack_t **stack, unsigned int line_number)
 	if (dummy == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		EXIT_FAILURE;
 	}
 	new = malloc(sizeof(stack_t));
 
-	new->n = atoi(dummy);
-	new->prev = NULL;
-	new->next = NULL;
+	if (dummy)
+	{
+		new->n = atoi(dummy);
+		new->prev = NULL;
+		new->next = NULL;
+	}
 
 	if (*stack == NULL)
 		*stack = new;
