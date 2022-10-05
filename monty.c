@@ -7,6 +7,7 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 	instruction_t opp[] = {
 		{"push", push_func}, {"pall", pall_func}
 	};
+
 	if (holder == NULL)
 		return (1);
 	for (i = 0; i < 2; i++)
@@ -16,7 +17,7 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 			if (!strcmp("push", holder))
 			{
 				opp[i].f(head, *line_no);
-				if ((*head)->n == 0)
+				if (oP[0] == 'x')
 					return (0);
 				return (1);
 			}
@@ -27,7 +28,7 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 			}
 		}
 	}
-	fprintf(stderr, "L%d: unknown instructions %s\n", *line_no, holder);
+	fprintf(stderr, "L%d: unknown instruction %s\n", *line_no, holder);
 	return (-1);
 }
 
@@ -42,7 +43,7 @@ char *get_opcode(char c, int fd, unsigned int *ptr)
 {
 	int i = 0, n = 1, x = 0;
 
-	oP = malloc(sizeof(char) * n);
+	oP = malloc(sizeof(char) * (n));
 	if (oP == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -65,7 +66,7 @@ char *get_opcode(char c, int fd, unsigned int *ptr)
 		(*ptr)++;
 	if (x)
 		return oP;
-	return ("lol");
+	return (NULL);
 }
 
 /**
@@ -77,7 +78,7 @@ char *get_opcode(char c, int fd, unsigned int *ptr)
  */
 int main(int argc, char **argv)
 {
-	int fd, y;
+	int fd, y = 0;
 	unsigned int line_no = 0;
 	char c;
 	ssize_t read_len;
@@ -94,7 +95,6 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		EXIT_FAILURE;
 	}
-
 label:
 	read_len = read(fd, &c, 1);
 
