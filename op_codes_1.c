@@ -10,6 +10,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	}
+	/* check if value passed to push is int here */
 	new = malloc(sizeof(stack_t));
 
 	if (dummy)
