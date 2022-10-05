@@ -28,8 +28,8 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 			}
 		}
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", *line_no, holder);
-	return (-1);
+	fprintf(stderr, "L%d: unknown instruction %s\n", *line_no, rmv_spaces(holder));
+	return (0);
 }
 
 /**
@@ -87,13 +87,13 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		EXIT_FAILURE;
+		exit(EXIT_FAILURE);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		EXIT_FAILURE;
+		exit(EXIT_FAILURE);
 	}
 label:
 	read_len = read(fd, &c, 1);
@@ -104,7 +104,7 @@ label:
 		{
 			oP = get_opcode(c, fd, &line_no);
 			if (oP == NULL)
-				EXIT_FAILURE;
+				exit(EXIT_FAILURE);
 			break;
 		}
 		else if (c == '\n')
@@ -121,6 +121,8 @@ label:
 	close(fd);
 	free_stack_t(head);
 	if (y == 0)
-		EXIT_FAILURE;
+	{
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }

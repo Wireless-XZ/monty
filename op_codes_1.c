@@ -19,7 +19,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 		{
 			if (isdigit(dummy[i]) == 0)
 			{
-				oP = NULL;
+				oP[0] = 'x';
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
 				return;
 			}

@@ -1,13 +1,5 @@
-           push 0 Push 9 onto the stack
-push 1 Push 1 onto the stack
-
-push 2
-  push 3
-                   pall    
-
-push
-
-    push 5    
-      push    6
-
-pall This is the end of our program. Monty is awesome!
+        push       1
+push 3
+omo elewa
+pall
+	mumu_man
