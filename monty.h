@@ -42,5 +42,7 @@ typedef struct instruction_s
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
+void check_opcode(char *str, stack_t **head, unsigned int *line_no);
+char *get_opcode(char c, int fd, unsigned int *ptr);
 
 #endif
