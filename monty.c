@@ -7,6 +7,8 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 	instruction_t opp[] = {
 		{"push", push_func}, {"pall", pall_func}
 	};
+	if (holder == NULL)
+		return (1);
 	for (i = 0; i < 2; i++)
 	{
 		if (!strcmp(opp[i].opcode, holder))
