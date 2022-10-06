@@ -112,7 +112,7 @@ label:
 
 	while (read_len == 1)
 	{
-		if (c != '\n' && c != ' ')
+		if (c != '\n')
 		{
 			oP = get_opcode(c, fd, &line_no);
 			if (oP == NULL)
