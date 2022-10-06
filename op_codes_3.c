@@ -103,3 +103,26 @@ void rotl_func(stack_t **stack,
 		holder->next = NULL;
 	}
 }
+
+/**
+ * rotr_func - prints the char at the top of the stack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void rotr_func(stack_t **stack,
+	       __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *dummy = *stack;
+
+	if (*stack && (*stack)->next)
+	{
+		while (dummy->next)
+			dummy = dummy->next;
+
+		dummy->next = *stack;
+		(*stack)->prev = dummy;
+		dummy->prev->next = NULL;
+		dummy->prev = NULL;
+		*stack = dummy;
+	}
+}
