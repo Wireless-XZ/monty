@@ -91,12 +91,15 @@ void rotl_func(stack_t **stack,
 {
 	stack_t *dummy = *stack, *holder = *stack;
 
-	while (dummy->next)
-		dummy = dummy->next;
+	if (*stack && (*stack)->next)
+	{
+		while (dummy->next)
+			dummy = dummy->next;
 
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	dummy->next = holder;
-	holder->prev = dummy;
-	holder->next = NULL;
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+		dummy->next = holder;
+		holder->prev = dummy;
+		holder->next = NULL;
+	}
 }
