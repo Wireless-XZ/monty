@@ -1,2 +1,2 @@
-push 1678
+push 87
 pchar
