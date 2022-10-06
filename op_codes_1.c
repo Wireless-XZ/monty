@@ -102,3 +102,30 @@ void pop_func(stack_t **stack, unsigned int line_number)
 		free(dummy);
 	}
 }
+
+/**
+ * swap_func - swaps the top two elements of the slack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void swap_func(stack_t **stack, unsigned int line_number)
+{
+	const stack_t *dummy = *stack;
+	unsigned long int len;
+	int x;
+
+	for (len = 0; dummy; len++)
+		dummy = dummy->next;
+
+	if (len < 2)
+	{
+		oP[0] = 'x';
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+	}
+	else
+	{
+		x = (*stack)->n;
+		(*stack)->n = (*stack)->next->n;
+		(*stack)->next->n = x;
+	}
+}
