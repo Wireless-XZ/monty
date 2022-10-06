@@ -42,7 +42,7 @@ void pchar_func(stack_t **stack, unsigned int line_number)
 		oP[0] = 'x';
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 	}
-	else if (!((*stack)->n >= 0 && (*stack)->n <= 127))
+	else if (!((*stack)->n > 0 && (*stack)->n <= 127))
 	{
 		oP[0] = 'x';
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
