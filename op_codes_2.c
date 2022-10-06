@@ -76,7 +76,7 @@ void div_func(stack_t **stack, unsigned int line_number)
 	if (len < 2)
 	{
 		oP[0] = 'x';
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 	}
 	else if ((*stack)->n == 0)
 	{
