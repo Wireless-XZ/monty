@@ -20,12 +20,13 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 		{"swap", swap_func}, {"add", add_func},
 		{"nop", nop_func}, {"sub", sub_func},
 		{"div", div_func}, {"mul", mul_func},
-		{"mod", mod_func}, {"pchar", pchar_func}
+		{"mod", mod_func}, {"pchar", pchar_func},
+		{"pstr", pstr_func}
 	};
 
 	if (holder == NULL)
 		return (1);
-	for (i = 0; i < 12; i++)
+	for (i = 0; i < 13; i++)
 	{
 		if (!strcmp(opp[i].opcode, holder))
 		{
@@ -104,6 +105,11 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 				opp[i].f(head, *line_no);
 				if (oP[0] == 'x')
 					return (0);
+				return (1);
+			}
+			else if (!strcmp("pstr", holder))
+			{
+				opp[i].f(head, *line_no);
 				return (1);
 			}
 		}

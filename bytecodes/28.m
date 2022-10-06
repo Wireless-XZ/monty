@@ -1,2 +1,2 @@
-push 87
+push 0
 pchar

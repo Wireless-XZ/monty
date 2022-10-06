@@ -31,7 +31,7 @@ void mod_func(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pchar_func - prints the cahr at the top of the stack
+ * pchar_func - prints the char at the top of the stack
  * @stack: stack linked list
  * @line_number: line number of the file
  */
@@ -49,4 +49,32 @@ void pchar_func(stack_t **stack, unsigned int line_number)
 	}
 	else
 		printf("%c\n", (*stack)->n);
+}
+
+/**
+ * pstr_func - prints the string from top of the stack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void pstr_func(stack_t **stack,
+	       __attribute__((unused)) unsigned int line_number)
+{
+	const stack_t *dummy = *stack;
+
+	if (*stack == NULL)
+	{
+		putchar('\n');
+		return;
+	}
+	while (dummy)
+	{
+		if (dummy->n == 0 ||
+		    !(dummy->n >= 0 && dummy->n <= 127))
+		{
+			putchar('\n');
+			return;
+		}
+		putchar(dummy->n);
+		dummy = dummy->next;
+	}
 }
