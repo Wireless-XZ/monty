@@ -1,7 +1,3 @@
-push 0
+push -124
+pint
 pchar
-push 90
-push 6356
-pchar
-push 467
-pall

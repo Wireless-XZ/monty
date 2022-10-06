@@ -42,7 +42,7 @@ void pchar_func(stack_t **stack, unsigned int line_number)
 		oP[0] = 'x';
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 	}
-	else if (!((*stack)->n > 0 && (*stack)->n <= 127))
+	else if (!((*stack)->n >= 0 && (*stack)->n <= 127))
 	{
 		oP[0] = 'x';
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
@@ -79,4 +79,24 @@ void pstr_func(stack_t **stack,
 		putchar(dummy->n);
 		dummy = dummy->next;
 	}
+}
+
+/**
+ * rotl_func - prints the char at the top of the stack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void rotl_func(stack_t **stack,
+	       __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *dummy = *stack, *holder = *stack;
+
+	while (dummy->next)
+		dummy = dummy->next;
+
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	dummy->next = holder;
+	holder->prev = dummy;
+	holder->next = NULL;
 }
