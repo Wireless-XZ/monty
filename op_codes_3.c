@@ -73,8 +73,7 @@ void pstr_func(stack_t **stack,
 		if (dummy->n == 0 ||
 		    !(dummy->n > 0 && dummy->n <= 127))
 		{
-			if (dummy->n == 0)
-				putchar('\n');
+			putchar('\n');
 			return;
 		}
 		putchar(dummy->n);
