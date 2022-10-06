@@ -76,7 +76,8 @@ void pint_func(stack_t **stack, unsigned int line_number)
 		oP[0] = 'x';
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 	}
-	printf("%d\n", (*stack)->n);
+	else
+		printf("%d\n", (*stack)->n);
 }
 
 /**
@@ -86,12 +87,18 @@ void pint_func(stack_t **stack, unsigned int line_number)
  */
 void pop_func(stack_t **stack, unsigned int line_number)
 {
+	stack_t *dummy = *stack;
+
 	if (*stack == NULL)
 	{
 		oP[0] = 'x';
 		fprintf(stderr, "L%u: can't pop, stack empty\n", line_number);
 	}
-	*stack = (*stack)->next;
-	if (*stack)
-		(*stack)->prev = NULL;
+	else
+	{
+		*stack = (*stack)->next;
+		if (*stack)
+			(*stack)->prev = NULL;
+		free(dummy);
+	}
 }
