@@ -72,7 +72,7 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n",
-		*line_no, strtok(holder, " "));
+		*line_no, holder);
 	return (0);
 }
 
