@@ -59,19 +59,3 @@ void free_stack_t(stack_t *head)
 	}
 	free(dummy);
 }
-
-char *rmv_spaces(char *str)
-{
-	int i, len = 0, j;
-
-	len = strlen(str);
-	for (i = 0; i < len; i++)
-	{
-		if (str[i] == ' ')
-		{
-			for (j = i; j < len; j ++)
-				str[j] = str[j + 1];
-		}
-	}
-	return str;
-}
