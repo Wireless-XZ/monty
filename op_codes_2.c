@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * adds_func - swaps the top two elements of the slack
+ * add_func - swaps the top two elements of the slack
  * @stack: stack linked list
  * @line_number: line number of the file
  */
@@ -23,4 +23,14 @@ void add_func(stack_t **stack, unsigned int line_number)
 		(*stack)->next->n += (*stack)->n;
 		pop_func(stack, line_number);
 	}
+}
+
+/**
+ * nop_func - this opcode does nothing
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void nop_func(__attribute__((unused)) stack_t **stack,
+	      __attribute__((unused)) unsigned int line_number)
+{
 }

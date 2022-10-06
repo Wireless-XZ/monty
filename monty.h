@@ -50,5 +50,6 @@ void pint_func(stack_t **stack, unsigned int line_number);
 void pop_func(stack_t **stack, unsigned int line_number);
 void swap_func(stack_t **stack, unsigned int line_number);
 void add_func(stack_t **stack, unsigned int line_number);
+void nop_func(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number);
 
 #endif

@@ -17,12 +17,13 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 	instruction_t opp[] = {
 		{"push", push_func}, {"pall", pall_func},
 		{"pint", pint_func}, {"pop", pop_func},
-		{"swap", swap_func}, {"add", add_func}
+		{"swap", swap_func}, {"add", add_func},
+		{"nop", nop_func}
 	};
 
 	if (holder == NULL)
 		return (1);
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 7; i++)
 	{
 		if (!strcmp(opp[i].opcode, holder))
 		{
@@ -60,6 +61,13 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 				return (1);
 			}
 			else if (!strcmp("add", holder))
+			{
+				opp[i].f(head, *line_no);
+				if (oP[0] == 'x')
+					return (0);
+				return (1);
+			}
+			else if (!strcmp("nop", holder))
 			{
 				opp[i].f(head, *line_no);
 				if (oP[0] == 'x')
