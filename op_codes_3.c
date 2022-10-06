@@ -29,3 +29,27 @@ void mod_func(stack_t **stack, unsigned int line_number)
 		pop_func(stack, line_number);
 	}
 }
+
+/**
+ * pchar_func - prints the cahr at the top of the stack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void pchar_func(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		oP[0] = 'x';
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+	}
+	else if (!((*stack)->n >= 0 && (*stack)->n <= 127))
+	{
+		oP[0] = 'x';
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+	}
+	else
+	{
+		putchar((*stack)->n);
+		putchar('\n');
+	}
+}
