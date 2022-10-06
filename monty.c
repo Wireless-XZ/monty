@@ -171,7 +171,6 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 label:
-	y = 0;
 	read_len = read(fd, &c, 1);
 
 	while (read_len == 1)
@@ -189,8 +188,7 @@ label:
 	}
 	if (read_len == 1)
 	{
-		if (y == 0)
-			y = check_opcode(oP, &head, &line_no);
+		y = check_opcode(oP, &head, &line_no);
 		free(oP);
 		if (y > 0)
 			goto label;
@@ -198,7 +196,9 @@ label:
 	close(fd);
 	free_stack_t(head);
 	if (y == 0)
+	{
 		exit(EXIT_FAILURE);
+	}
 	return (0);
 }
 
