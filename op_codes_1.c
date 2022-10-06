@@ -63,3 +63,19 @@ void pall_func(stack_t **stack,
 		dummy = dummy->next;
 	}
 }
+
+/**
+ * pint_func - prints the item at the top of the stack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void pint_func(stack_t **stack,
+	       __attribute__((unused)) unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		oP[0] = 'x';
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+	}
+	printf("%d\n", (*stack)->n);
+}
