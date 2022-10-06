@@ -54,7 +54,6 @@ char *get_opcode(char c, int fd, unsigned int *ptr)
 {
 	int i = 0, n = 1, x = 0;
 
-	printf("c: %c\n", c);
 	oP = malloc(sizeof(char) * (n));
 	if (oP == NULL)
 	{
