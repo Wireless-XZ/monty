@@ -1,0 +1,11 @@
+#include "monty.h"
+
+/**
+ * stack_func - sets the ofrmat to stack
+ * @stack: head node
+ * @line_number: file's line number
+ */
+void stack_func(stack_t **stack, unsigned int line_number)
+{
+	op[0] = 's';
+	

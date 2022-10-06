@@ -27,6 +27,8 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 
 	if (holder == NULL)
 		return (1);
+	else if (holder[0] == '#')
+		return (1);
 	for (i = 0; opp[i].opcode; i++)
 	{
 		if (!strcmp(opp[i].opcode, holder))
