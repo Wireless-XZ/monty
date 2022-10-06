@@ -69,8 +69,7 @@ void pall_func(stack_t **stack,
  * @stack: stack linked list
  * @line_number: line number of the file
  */
-void pint_func(stack_t **stack,
-	       __attribute__((unused)) unsigned int line_number)
+void pint_func(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -78,4 +77,21 @@ void pint_func(stack_t **stack,
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 	}
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * pop_func - removes the item at the top of the stack
+ * @stack: stack linked list
+ * @line_number: line number of the file
+ */
+void pop_func(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		oP[0] = 'x';
+		fprintf(stderr, "L%u: can't pop, stack empty\n", line_number);
+	}
+	*stack = (*stack)->next;
+	if (*stack)
+		(*stack)->prev = NULL;
 }

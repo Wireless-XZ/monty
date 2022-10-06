@@ -47,5 +47,6 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no);
 char *get_opcode(char c, int fd, unsigned int *ptr);
 void free_stack_t(stack_t *head);
 void pint_func(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void pop_func(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 
 #endif
