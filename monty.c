@@ -68,12 +68,7 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 				return (1);
 			}
 			else if (!strcmp("nop", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
 				return (1);
-			}
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n",
