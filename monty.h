@@ -53,5 +53,6 @@ void add_func(stack_t **stack, unsigned int line_number);
 void nop_func(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void sub_func(stack_t **stack, unsigned int line_number);
 void div_func(stack_t **stack, unsigned int line_number);
+void mul_func(stack_t **stack, unsigned int line_number);
 
 #endif
