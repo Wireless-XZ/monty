@@ -66,12 +66,15 @@ void pstr_func(stack_t **stack,
 		putchar('\n');
 		return;
 	}
+	else if ((*stack)->n == 0)
+		return;
 	while (dummy)
 	{
 		if (dummy->n == 0 ||
 		    !(dummy->n > 0 && dummy->n <= 127))
 		{
-			putchar('\n');
+			if (dummy->n == 0)
+				putchar('\n');
 			return;
 		}
 		putchar(dummy->n);
