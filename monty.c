@@ -165,9 +165,11 @@ char *get_opcode(char c, int fd, unsigned int *ptr)
 	}
 	if (c == '\n')
 		(*ptr)++;
-	if (x)
-		return (oP);
-	return (NULL);
+	/**
+	 * if (x)
+	 * return (oP);
+	 */
+	return (oP);
 }
 
 /**
