@@ -61,24 +61,19 @@ void pstr_func(stack_t **stack,
 {
 	const stack_t *dummy = *stack;
 
-	if (*stack == NULL)
-	{
-		putchar('\n');
-		return;
-	}
-	else if ((*stack)->n == 0)
-		return;
 	while (dummy)
 	{
-		if (dummy->n == 0 ||
-		    !(dummy->n > 0 && dummy->n <= 127))
+		if (!(dummy->n >= 0 && dummy->n <= 127))
 		{
 			putchar('\n');
 			return;
 		}
+		if (dummy->n == 0)
+			break;
 		putchar(dummy->n);
 		dummy = dummy->next;
 	}
+	putchar('\n');
 }
 
 /**
