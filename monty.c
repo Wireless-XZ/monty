@@ -33,99 +33,12 @@ int check_opcode(char *str, stack_t **head, unsigned int *line_no)
 	{
 		if (!strcmp(opp[i].opcode, holder))
 		{
-			if (!strcmp("push", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("pall", holder))
-			{
-				opp[i].f(head, *line_no);
-				return (1);
-			}
-			else if (!strcmp("pint", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("pop", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("swap", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("add", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("nop", holder))
-				return (1);
-			else if (!strcmp("sub", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("div", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("mul", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("mod", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("pchar", holder))
-			{
-				opp[i].f(head, *line_no);
-				if (oP[0] == 'x')
-					return (0);
-				return (1);
-			}
-			else if (!strcmp("pstr", holder))
-			{
-				opp[i].f(head, *line_no);
-				return (1);
-			}
-			else if (!strcmp("rotl", holder))
-			{
-				opp[i].f(head, *line_no);
-				return (1);
-			}
-			else if (!strcmp("rotr", holder))
-			{
-				opp[i].f(head, *line_no);
-				return (1);
-			}
+			opp[i].f(head, *line_no);
+			if (oP[0] == 'x')
+				return (0);
+			return (1);
 		}
+
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n",
 		*line_no, holder);
